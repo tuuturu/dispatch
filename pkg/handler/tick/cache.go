@@ -28,6 +28,11 @@ func setCachedQuote(quote Quote) error {
 		return fmt.Errorf("creating cached quote file: %w", err)
 	}
 
+	err = f.Chmod(0o644)
+	if err != nil {
+		return fmt.Errorf("setting permissions: %w", err)
+	}
+
 	defer func() {
 		_ = f.Close()
 	}()
