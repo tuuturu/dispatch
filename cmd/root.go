@@ -20,7 +20,7 @@ var rootCmd = cobra.Command{
 			PidFilePerm: 0644,
 			LogFileName: "dispatcher.log",
 			LogFilePerm: 0640,
-			WorkDir:     "/tmp/",
+			WorkDir:     "./",
 			Umask:       027,
 		}
 
