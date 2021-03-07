@@ -1,0 +1,13 @@
+[Unit]
+Description=Handles events on the local Mosquitto server
+Requires=mosquitto.service
+After=mosquitto.service
+
+[Service]
+Type=forking
+WorkingDirectory=/tmp
+PIDFile=/tmp/dispatcher.pid
+ExecStart=dispatcher mqtt://localhost:1883/alfred/tick
+
+[Install]
+WantedBy=multi-user.target
